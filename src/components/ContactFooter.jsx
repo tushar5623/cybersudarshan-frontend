@@ -22,7 +22,7 @@ const ContactFooter = () => {
 
     try {
       // Node.js Backend Call
-      const response = await fetch(' https://cyber-sudarshan-backend-1.onrender.com', {
+    const response = await fetch('https://cyber-sudarshan-backend-1.onrender.com/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
