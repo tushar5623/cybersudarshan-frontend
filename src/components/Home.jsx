@@ -26,10 +26,10 @@ const Home = () => {
         body: JSON.stringify(emergencyData),
       });
 
-      
+
 
       if (response.ok) {
-        alert("Emergency Alert Sent! We will contact you soon.");
+        alert("Emergency Alert Sent! We will contact you soon. ");
         setShowEmergency(false); // Popup band kar do
         setEmergencyData({ name: '', email: '', mobile: '', problem: '' }); // Form clear kar do
       } else {
