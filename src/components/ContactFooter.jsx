@@ -22,7 +22,7 @@ const ContactFooter = () => {
 
     try {
       // Node.js Backend Call
-      // wake up vercel)
+      // wake up vercel
     const response = await fetch('https://cyber-sudarshan-backend-1.onrender.com/api/contact', {
         method: 'POST',
         headers: {
