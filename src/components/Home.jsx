@@ -27,7 +27,7 @@ const Home = () => {
       });
 
       if (response.ok) {
-        alert("Emergency Alert Sent! Humari team aapse jaldi contact karegi.");
+        alert("Emergency Alert Sent! We will contact you soon.");
         setShowEmergency(false); // Popup band kar do
         setEmergencyData({ name: '', email: '', mobile: '', problem: '' }); // Form clear kar do
       } else {
