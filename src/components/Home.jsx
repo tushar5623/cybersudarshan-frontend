@@ -26,6 +26,8 @@ const Home = () => {
         body: JSON.stringify(emergencyData),
       });
 
+      
+
       if (response.ok) {
         alert("Emergency Alert Sent! We will contact you soon.");
         setShowEmergency(false); // Popup band kar do
@@ -61,6 +63,7 @@ const Home = () => {
       </div>
 
       {/* EMERGENCY POPUP FORM (Modal) */}
+
       {showEmergency && (
         <div className="fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center z-[100]">
           <div className="bg-gray-900 border border-red-600 p-8 rounded-xl shadow-2xl w-[90%] max-w-md relative">
