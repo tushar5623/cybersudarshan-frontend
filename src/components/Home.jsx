@@ -4,6 +4,7 @@ import VisionMission from './VisionMission';
 import About from './About';
 import Services from './Services';
 import ContactFooter from './ContactFooter';
+import PasswordChecker from './PasswordChecker';
 import EmailBreachChecker from './EmailBreachChecker';
 
 const Home = () => {
@@ -48,6 +49,7 @@ const Home = () => {
       <Services />
 
       {/* 👇 NAYA DATA BREACH SCANNER TOOL YAHAN LAGA DIYA 👇 */}
+      <PasswordChecker />
       <EmailBreachChecker />
 
       <ContactFooter />

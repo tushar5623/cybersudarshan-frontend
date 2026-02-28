@@ -1,34 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const Hero = () => {
-  // --- NAYA PASSWORD CHECKER LOGIC ---
-  const [password, setPassword] = useState('');
-
-  const checkStrength = (pass) => {
-    let score = 0;
-    if (!pass) return score;
-    if (pass.length > 7) score += 1;
-    if (/[A-Z]/.test(pass)) score += 1;
-    if (/[0-9]/.test(pass)) score += 1;
-    if (/[^A-Za-z0-9]/.test(pass)) score += 1;
-    return score;
-  };
-
-  const score = checkStrength(password);
-
-const getStrengthDetails = () => {
-    switch (score) {
-      case 0: return { label: 'Very Weak ❌', color: 'bg-red-600', width: 'w-1/4', textColor: 'text-red-500' };
-      case 1: return { label: 'Weak ⚠️', color: 'bg-orange-500', width: 'w-2/4', textColor: 'text-orange-500' };
-      case 2: return { label: 'Moderate 🟡', color: 'bg-yellow-400', width: 'w-3/4', textColor: 'text-yellow-400' };
-      case 3: return { label: 'Strong ✅', color: 'bg-green-500', width: 'w-full', textColor: 'text-green-500' };
-      case 4: return { label: 'Unbreakable 🛡️', color: 'bg-cyan-500 shadow-[0_0_10px_rgba(6,182,212,0.8)]', width: 'w-full', textColor: 'text-cyan-400' };
-      default: return { label: '', color: 'bg-transparent', width: 'w-0', textColor: '' };
-    }
-  };        
-  const details = getStrengthDetails();
-  // --- LOGIC END ---
-
   return (
     <section className="relative w-full h-screen flex flex-col justify-center items-center text-center px-4 overflow-hidden">
       
@@ -38,10 +10,10 @@ const getStrengthDetails = () => {
       </div>
 
       {/* 2. MAIN CONTENT */}
-      <div className="relative z-10 max-w-4xl w-full space-y-6 flex flex-col items-center">
+      <div className="relative z-10 max-w-4xl space-y-6">
         
         {/* Badge */}
-        <div className="inline-block px-4 py-1.5 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-300 text-sm font-semibold mb-2 animate-pulse">
+        <div className="inline-block px-4 py-1.5 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-300 text-sm font-semibold mb-4 animate-pulse">
           🛡️ Building a Secure Digital India
         </div>
 
@@ -59,38 +31,16 @@ const getStrengthDetails = () => {
           spread awareness, and empower the youth with knowledge.
         </p>
 
-        {/* 👇 NAYA PASSWORD CHECKER COMPONENT (Buttons ki jagah) 👇 */}
-        <div className="pt-6 w-full max-w-md mx-auto">
-          <div className="bg-slate-900/50 backdrop-blur-md border border-slate-700/50 p-5 rounded-2xl shadow-[0_0_30px_rgba(6,182,212,0.1)] transition-all hover:shadow-[0_0_40px_rgba(6,182,212,0.2)]">
-            
-            <div className="flex items-center gap-2 mb-3">
-              <span className="text-xl">🔐</span>
-              <h3 className="text-slate-200 font-semibold text-sm tracking-wide uppercase">Live Password Checker</h3>
-            </div>
-
-            <input
-              type="text"
-              placeholder="Type to test your password..."
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="w-full p-3 bg-slate-950/80 text-white border border-slate-600/50 rounded-xl focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 outline-none transition-all placeholder-slate-500 font-mono"
-            />
-            
-            {password && (
-              <div className="mt-4 animate-fade-in">
-                <div className="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
-                  <div className={`h-full ${details.color} transition-all duration-500 ease-in-out ${details.width}`}></div>
-                </div>
-                <div className="flex justify-between items-center mt-2 text-sm">
-                  <span className="text-slate-400 font-medium">Strength Level:</span>
-                  <span className={`font-bold tracking-wide ${details.textColor}`}>{details.label}</span>
-                </div>
-              </div>
-            )}
-
-          </div>
+        {/* Buttons (Wapas aa gaye!) */}
+        <div className="flex flex-col md:flex-row gap-4 justify-center pt-4">
+          <button className="px-8 py-3 bg-cyan-500 hover:bg-cyan-600 text-slate-900 font-bold rounded-lg transition-all shadow-[0_0_20px_rgba(6,182,212,0.4)] hover:shadow-[0_0_30px_rgba(6,182,212,0.6)] cursor-pointer">
+            Join the Mission
+          </button>
+          
+          <button className="px-8 py-3 border border-slate-700 text-white hover:border-cyan-500 hover:text-cyan-400 rounded-lg transition-all bg-slate-900/50 backdrop-blur-sm cursor-pointer">
+            Learn More
+          </button>
         </div>
-        {/* 👆 PASSWORD CHECKER END 👆 */}
 
       </div>
 
