@@ -4,9 +4,10 @@ import VisionMission from './VisionMission';
 import About from './About';
 import Services from './Services';
 import ContactFooter from './ContactFooter';
+import EmailBreachChecker from './EmailBreachChecker';
 
 const Home = () => {
-  // 👇 1. NAYE VARIABLES AUR FUNCTIONS YAHAN AAYENGE 👇
+  // 👇 1. EMERGENCY VARIABLES AUR FUNCTIONS 👇
   const [showEmergency, setShowEmergency] = useState(false);
   const [emergencyData, setEmergencyData] = useState({ name: '', email: '', mobile: '', problem: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -26,8 +27,6 @@ const Home = () => {
         body: JSON.stringify(emergencyData),
       });
 
-
-
       if (response.ok) {
         alert("Emergency Alert Sent! We will contact you soon. ");
         setShowEmergency(false); // Popup band kar do
@@ -40,7 +39,6 @@ const Home = () => {
     }
     setIsSubmitting(false);
   };
-  // 👆 YAHAN TAK 👆
 
   return (
     <>
@@ -48,10 +46,12 @@ const Home = () => {
       <VisionMission />
       <About />
       <Services />
+
+      {/* 👇 NAYA DATA BREACH SCANNER TOOL YAHAN LAGA DIYA 👇 */}
+      <EmailBreachChecker />
+
       <ContactFooter />
 
-      {/* 👇 2. NAYA BUTTON AUR POPUP WALA HTML YAHAN AAYEGA 👇 */}
-      
       {/* EMERGENCY BUTTON (Red & Pulsing) */}
       <div className="fixed bottom-10 right-10 z-50">
         <button 
@@ -63,7 +63,6 @@ const Home = () => {
       </div>
 
       {/* EMERGENCY POPUP FORM (Modal) */}
-
       {showEmergency && (
         <div className="fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center z-[100]">
           <div className="bg-gray-900 border border-red-600 p-8 rounded-xl shadow-2xl w-[90%] max-w-md relative">
@@ -112,7 +111,7 @@ const Home = () => {
           </div>
         </div>
       )}
-      {/* 👆 YAHAN TAK 👆 */}
+
     </>
   );
 };
