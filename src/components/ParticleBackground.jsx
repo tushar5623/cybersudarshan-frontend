@@ -17,7 +17,7 @@ const ParticleBackground = () => {
     () => ({
       background: {
         color: {
-          value: "#020617", // ✅ Ye tumhara Dark Blue Theme color hai
+          value: "#020617", // ✅ Dark Blue/Slate Background (Ye perfect hai)
         },
       },
       fpsLimit: 120,
@@ -33,20 +33,20 @@ const ParticleBackground = () => {
             distance: 200,
             links: {
               opacity: 1,
-              color: "#06b6d4" // Cyan Lines
+              color: "#eab308" // 🔥 Cyber-Gold Lines (Hover karne par)
             }
           },
         },
       },
       particles: {
         color: {
-          value: "#06b6d4", // Cyan Dots
+          value: "#eab308", // 🔥 Cyber-Gold Dots
         },
         links: {
-          color: "#06b6d4",
+          color: "#eab308", // 🔥 Cyber-Gold Connecting Lines
           distance: 150,
           enable: true,
-          opacity: 0.3,
+          opacity: 0.3, // Halka transparency taaki logo clear dikhe
           width: 1,
         },
         move: {
@@ -79,7 +79,7 @@ const ParticleBackground = () => {
       <Particles
         id="tsparticles"
         options={options}
-        className="absolute inset-0 -z-50 h-full w-full" 
+        className="absolute inset-0 -z-50 h-full w-full pointer-events-none" 
       />
     );
   }

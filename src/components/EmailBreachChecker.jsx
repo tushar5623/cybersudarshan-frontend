@@ -5,7 +5,7 @@ const EmailBreachChecker = () => {
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
 
-const checkBreach = async (e) => {
+  const checkBreach = async (e) => {
     e.preventDefault();
     if (!email) return;
     
@@ -13,9 +13,8 @@ const checkBreach = async (e) => {
     setResult(null);
 
     try {
-      // Ab hum direct API nahi, apna Render wala backend call karenge
       const response = await fetch(`https://cyber-sudarshan-backend-1.onrender.com/api/breach/${email}`);
-    // const response = await fetch(`http://localhost:5000/api/breach/${email}`);
+
       if (response.ok) {
         const data = await response.json();
         if (data.safe) {
@@ -35,12 +34,12 @@ const checkBreach = async (e) => {
 
   return (
     <div className="bg-slate-950 py-16 px-4">
-      <div className="max-w-3xl mx-auto bg-slate-900/50 backdrop-blur-md rounded-2xl p-8 border border-slate-700/50 shadow-[0_0_30px_rgba(6,182,212,0.1)] transition-all hover:shadow-[0_0_40px_rgba(6,182,212,0.2)]">
+      <div className="max-w-3xl mx-auto bg-slate-900/50 backdrop-blur-md rounded-2xl p-8 border border-slate-700/50 shadow-[0_0_30px_rgba(234,179,8,0.1)] transition-all hover:shadow-[0_0_40px_rgba(234,179,8,0.2)]">
         
         <div className="text-center mb-8">
           <div className="flex justify-center items-center gap-3 mb-4">
             <span className="text-4xl">📧</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">Data Breach <span className="text-cyan-400">Scanner</span></h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">Data Breach <span className="text-yellow-500">Scanner</span></h2>
           </div>
           <p className="text-slate-400 text-lg">Check if your email address has been compromised in a data breach.</p>
         </div>
@@ -52,12 +51,12 @@ const checkBreach = async (e) => {
             required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="flex-1 p-4 bg-slate-950/80 text-white border border-slate-600/50 rounded-xl focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 outline-none transition-all placeholder-slate-500 font-mono"
+            className="flex-1 p-4 bg-slate-950/80 text-white border border-slate-600/50 rounded-xl focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500 outline-none transition-all placeholder-slate-500 font-mono"
           />
           <button 
             type="submit" 
             disabled={loading}
-            className="px-8 py-4 bg-cyan-500 hover:bg-cyan-600 text-slate-900 font-bold rounded-xl transition-all shadow-[0_0_15px_rgba(6,182,212,0.4)] disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+            className="px-8 py-4 bg-yellow-500 hover:bg-yellow-400 text-black font-extrabold rounded-xl transition-all shadow-[0_0_15px_rgba(234,179,8,0.4)] disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
           >
             {loading ? "Scanning..." : "Scan Now"}
           </button>

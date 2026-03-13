@@ -21,7 +21,8 @@ const PasswordChecker = () => {
       case 1: return { label: 'Weak ⚠️', color: 'bg-orange-500', width: 'w-2/4', textColor: 'text-orange-500' };
       case 2: return { label: 'Moderate 🟡', color: 'bg-yellow-400', width: 'w-3/4', textColor: 'text-yellow-400' };
       case 3: return { label: 'Strong ✅', color: 'bg-green-500', width: 'w-full', textColor: 'text-green-500' };
-      case 4: return { label: 'Unbreakable 🛡️', color: 'bg-cyan-500 shadow-[0_0_10px_rgba(6,182,212,0.8)]', width: 'w-full', textColor: 'text-cyan-400' };
+      // 👇 Unbreakable ab Cyan ki jagah Gold/Yellow glow karega
+      case 4: return { label: 'Unbreakable 🛡️', color: 'bg-yellow-500 shadow-[0_0_10px_rgba(234,179,8,0.8)]', width: 'w-full', textColor: 'text-yellow-400' };
       default: return { label: '', color: 'bg-transparent', width: 'w-0', textColor: '' };
     }
   };
@@ -30,11 +31,12 @@ const PasswordChecker = () => {
 
   return (
     <div className="bg-slate-950 py-8 px-4">
-      <div className="max-w-3xl mx-auto bg-slate-900/50 backdrop-blur-md rounded-2xl p-8 border border-slate-700/50 shadow-[0_0_30px_rgba(6,182,212,0.1)] transition-all hover:shadow-[0_0_40px_rgba(6,182,212,0.2)]">
+      {/* Box ke shadows aur border hover effects Yellow kiye gaye hain */}
+      <div className="max-w-3xl mx-auto bg-slate-900/50 backdrop-blur-md rounded-2xl p-8 border border-slate-700/50 shadow-[0_0_30px_rgba(234,179,8,0.1)] transition-all hover:shadow-[0_0_40px_rgba(234,179,8,0.2)]">
         <div className="text-center mb-8">
           <div className="flex justify-center items-center gap-3 mb-4">
             <span className="text-4xl">🔐</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">Password <span className="text-cyan-400">Checker</span></h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">Password <span className="text-yellow-500">Checker</span></h2>
           </div>
           <p className="text-slate-400 text-lg">Test the strength of your password against cyber threats.</p>
         </div>
@@ -45,7 +47,7 @@ const PasswordChecker = () => {
             placeholder="Type your password here..."
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="w-full p-4 bg-slate-950/80 text-white border border-slate-600/50 rounded-xl focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 outline-none transition-all placeholder-slate-500 font-mono text-lg"
+            className="w-full p-4 bg-slate-950/80 text-white border border-slate-600/50 rounded-xl focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500 outline-none transition-all placeholder-slate-500 font-mono text-lg"
           />
           
           {password && (
@@ -58,7 +60,6 @@ const PasswordChecker = () => {
                 <span className={`font-bold tracking-wide text-lg ${details.textColor}`}>{details.label}</span>
               </div>
               
-              {/* Tips for weak passwords */}
               {score < 4 && (
                 <div className="mt-6 p-5 bg-slate-950/80 rounded-xl border border-slate-800 text-sm text-slate-400">
                   <p className="font-semibold text-slate-300 mb-2">💡 How to make it Unbreakable:</p>

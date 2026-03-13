@@ -22,8 +22,7 @@ const ContactFooter = () => {
 
     try {
       // Node.js Backend Call
-      // wake up vercel
-    const response = await fetch('https://cyber-sudarshan-backend-1.onrender.com/api/contact', {
+      const response = await fetch('https://cyber-sudarshan-backend-1.onrender.com/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -47,7 +46,6 @@ const ContactFooter = () => {
   };
 
   return (
-    // CHANGE 1: 'bg-slate-950' hata diya taaki transparent ho jaye
     <div className="relative z-10">
       
       {/* === CONTACT SECTION === */}
@@ -58,7 +56,7 @@ const ContactFooter = () => {
           {/* Left Side: Contact Info */}
           <div>
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-              Get in <span className="text-cyan-400">Touch</span>
+              Get in <span className="text-yellow-500">Touch</span>
             </h2>
             <p className="text-slate-400 text-lg mb-8">
               Have a question or want to organize a cyber awareness workshop?
@@ -67,23 +65,23 @@ const ContactFooter = () => {
             
             <div className="space-y-4">
               <div className="flex items-center gap-4 text-slate-300">
-                <span className="bg-slate-900/80 backdrop-blur-sm p-3 rounded-lg text-cyan-400">📧</span>
+                <span className="bg-slate-900/80 backdrop-blur-sm p-3 rounded-lg text-yellow-500">📧</span>
                 <span> cybersudarshan.in@gmail.com</span>
               </div>
               <div className="flex items-center gap-4 text-slate-300">
-                <span className="bg-slate-900/80 backdrop-blur-sm p-3 rounded-lg text-cyan-400">📞</span>
+                <span className="bg-slate-900/80 backdrop-blur-sm p-3 rounded-lg text-yellow-500">📞</span>
                 <span>+91 89232 05311</span>
                 <span>+91 89557 62932</span>
               </div>
               <div className="flex items-center gap-4 text-slate-300">
-                <span className="bg-slate-900/80 backdrop-blur-sm p-3 rounded-lg text-cyan-400">📍</span>
+                <span className="bg-slate-900/80 backdrop-blur-sm p-3 rounded-lg text-yellow-500">📍</span>
                 <span>New Delhi, India</span>
               </div>
             </div>
           </div>
 
-          {/* Right Side: Form */}
-          <form onSubmit={handleSubmit} className="bg-slate-900/50 p-8 rounded-2xl border border-slate-800 backdrop-blur-sm shadow-xl">
+          {/* Right Side: Form (Gold Hover/Focus Theme) */}
+          <form onSubmit={handleSubmit} className="bg-slate-900/50 p-8 rounded-2xl border border-slate-800 backdrop-blur-sm shadow-[0_0_30px_rgba(234,179,8,0.05)] hover:border-yellow-500/30 transition-all">
             
             <div className="space-y-6">
               
@@ -97,7 +95,7 @@ const ContactFooter = () => {
                   onChange={handleChange}
                   placeholder="John Doe" 
                   required
-                  className="w-full bg-slate-950/50 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition-colors placeholder-slate-600 backdrop-blur-md"
+                  className="w-full bg-slate-950/50 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500 transition-colors placeholder-slate-600 backdrop-blur-md"
                 />
               </div>
 
@@ -111,7 +109,7 @@ const ContactFooter = () => {
                   onChange={handleChange}
                   placeholder="john@example.com" 
                   required
-                  className="w-full bg-slate-950/50 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition-colors placeholder-slate-600 backdrop-blur-md"
+                  className="w-full bg-slate-950/50 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500 transition-colors placeholder-slate-600 backdrop-blur-md"
                 />
               </div>
 
@@ -125,15 +123,15 @@ const ContactFooter = () => {
                   onChange={handleChange}
                   placeholder="How can we help you?" 
                   required
-                  className="w-full bg-slate-950/50 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition-colors placeholder-slate-600 resize-none backdrop-blur-md"
+                  className="w-full bg-slate-950/50 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500 transition-colors placeholder-slate-600 resize-none backdrop-blur-md"
                 ></textarea>
               </div>
 
-              {/* Submit Button */}
+              {/* Submit Button (Gold Gradient) */}
               <button 
                 type="submit" 
                 disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold py-3 rounded-lg transition-all shadow-[0_0_20px_rgba(6,182,212,0.3)] hover:shadow-[0_0_30px_rgba(6,182,212,0.5)] disabled:opacity-50"
+                className="w-full bg-gradient-to-r from-yellow-500 to-amber-500 hover:from-yellow-400 hover:to-amber-400 text-slate-900 font-extrabold py-3 rounded-lg transition-all shadow-[0_0_20px_rgba(234,179,8,0.3)] hover:shadow-[0_0_30px_rgba(234,179,8,0.5)] disabled:opacity-50"
               >
                 {isSubmitting ? "Sending..." : "Send Message"}
               </button>
@@ -145,10 +143,9 @@ const ContactFooter = () => {
       </section>
 
       {/* === FOOTER === */}
-      {/* CHANGE 2: Footer ko bhi transparent aur blur kiya */}
       <footer className="border-t border-slate-800/50 bg-slate-950/30 backdrop-blur-md py-8 text-center mt-10">
         <p className="text-slate-500 text-sm">
-          © 2026 <span className="text-cyan-400 font-semibold">Cyber Sudarshan</span>. All Rights Reserved.
+          © 2026 <span className="text-yellow-500 font-semibold">Cyber Sudarshan</span>. All Rights Reserved.
         </p>
         <p className="text-slate-600 text-xs mt-2">
           Designed for a Secure Digital India 🇮🇳
