@@ -32,14 +32,30 @@ const Hero = () => {
         </p>
 
         {/* Buttons (Wapas aa gaye!) */}
-        <div className="flex flex-col md:flex-row gap-4 justify-center pt-4">
-          <button className="px-8 py-3 bg-cyan-500 hover:bg-cyan-600 text-slate-900 font-bold rounded-lg transition-all shadow-[0_0_20px_rgba(6,182,212,0.4)] hover:shadow-[0_0_30px_rgba(6,182,212,0.6)] cursor-pointer">
-            Join the Mission
+       {/* Buttons (New Attractive Design! 🔥) */}
+        <div className="flex flex-col md:flex-row gap-5 justify-center pt-6 items-center">
+          
+          {/* JOIN THE MISSION - Attractive Button with Neon Pulse Icon */}
+          <button className="group flex items-center gap-2.5 px-10 py-4 bg-cyan-500 hover:bg-cyan-600 text-slate-950 font-extrabold rounded-xl transition-all duration-300 shadow-[0_0_25px_rgba(6,182,212,0.6)] hover:shadow-[0_0_35px_rgba(6,182,212,0.9)] hover:scale-105 active:scale-95 cursor-pointer text-lg relative overflow-hidden">
+            
+            {/* Animated Glow Border on hover */}
+            <span className="absolute inset-0 bg-gradient-to-r from-cyan-300 to-cyan-500 opacity-0 group-hover:opacity-20 transition-opacity"></span>
+            
+            {/* Mission Icon (Shield/User) with pulsing glow */}
+            <span className="relative z-10 text-xl group-hover:scale-110 transition-transform">
+                👤+
+            </span>
+            
+            {/* Text */}
+            <span className="relative z-10 tracking-wide uppercase text-sm">Join the Mission</span>
           </button>
           
-          <button className="px-8 py-3 border border-slate-700 text-white hover:border-cyan-500 hover:text-cyan-400 rounded-lg transition-all bg-slate-900/50 backdrop-blur-sm cursor-pointer">
+          {/* LEARN MORE - Clean Outline Button (Matching Cyber Theme) */}
+          <button className="flex items-center gap-2 px-8 py-3.5 border-2 border-slate-700 text-white hover:border-cyan-500 hover:text-cyan-400 rounded-xl transition-all duration-300 bg-slate-900/30 backdrop-blur-sm cursor-pointer group hover:bg-slate-900/60">
             Learn More
+            <span className="text-slate-500 group-hover:text-cyan-400 group-hover:translate-x-1 transition-transform">→</span>
           </button>
+          
         </div>
 
       </div>

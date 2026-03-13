@@ -22,7 +22,7 @@ const Blogs = () => {
   // 1. Fetch Blogs
   const fetchBlogs = async () => {
     try {
-      const res = await fetch('http://localhost:5000/api/blogs');
+      const res = await fetch('https://cyber-sudarshan-backend-1.onrender.com/api/blogs');
       if (!res.ok) throw new Error('Server error');
       const data = await res.json();
       setBlogs(Array.isArray(data) ? data : []);
@@ -42,7 +42,7 @@ const Blogs = () => {
     setLoginError(''); // Purana error hatao
 
     try {
-      const res = await fetch('http://localhost:5000/api/verify-admin', {
+      const res = await fetch('https://cyber-sudarshan-backend-1.onrender.com/api/verify-admin', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ password: inputPassword })
@@ -84,7 +84,7 @@ const Blogs = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const res = await fetch('http://localhost:5000/api/blogs', {
+      const res = await fetch('https://cyber-sudarshan-backend-1.onrender.com/api/blogs', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...formData, adminPassword })
