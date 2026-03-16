@@ -6,6 +6,7 @@ import Services from './Services';
 import ContactFooter from './ContactFooter';
 import PasswordChecker from './PasswordChecker';
 import EmailBreachChecker from './EmailBreachChecker';
+import CyberNews from './CyberNews';
 
 // 👇 AOS ANIMATION IMPORTS 👇
 import AOS from 'aos';
@@ -59,6 +60,7 @@ const Home = () => {
   return (
     <div className="overflow-x-hidden"> {/* Horizontal scroll roknne ke liye */}
       <Hero />
+      <CyberNews />
       <VisionMission />
       <About />
       <Services />
