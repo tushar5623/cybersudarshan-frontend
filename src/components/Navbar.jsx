@@ -24,8 +24,6 @@ const Navbar = () => {
        {/* LOGO */}
         <Link to="/" className="flex items-center gap-2">
           
-          {/* 👇 YAHAN APNA ORIGINAL LOGO WAPAS LAGA DIYA 👇 */}
-          {/* Note: Agar tumhara logo kisi aur folder mein hai toh 'src' path theek kar lena jaise "/logo.png" */}
           <img 
             src={logo}
             alt="Cyber Sudarshan Logo" 
@@ -45,6 +43,9 @@ const Navbar = () => {
           <Link to="/" className="text-slate-300 hover:text-yellow-400 font-medium transition-colors">Home</Link>
           <a href="#about" className="text-slate-300 hover:text-yellow-400 font-medium transition-colors">About</a>
           <a href="#services" className="text-slate-300 hover:text-yellow-400 font-medium transition-colors">Services</a>
+          
+          {/* 🔥 BLOGS LINK WAPAS AA GAYA 🔥 */}
+          <Link to="/blogs" className="text-slate-300 hover:text-yellow-400 font-medium transition-colors">Blogs</Link>
           
           {/* Community Link */}
           <Link to="/community" className="text-slate-300 hover:text-yellow-400 font-medium transition-colors flex items-center gap-1">
@@ -72,7 +73,7 @@ const Navbar = () => {
         </div>
 
         {/* MOBILE MENU BUTTON */}
-        <button className="md:hidden text-white" onClick={() => setIsOpen(!isOpen)}>
+        <button className="md:hidden text-white cursor-pointer" onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
@@ -83,6 +84,10 @@ const Navbar = () => {
           <Link to="/" onClick={() => setIsOpen(false)} className="text-slate-300 font-medium">Home</Link>
           <a href="#about" onClick={() => setIsOpen(false)} className="text-slate-300 font-medium">About</a>
           <a href="#services" onClick={() => setIsOpen(false)} className="text-slate-300 font-medium">Services</a>
+          
+          {/* 🔥 MOBILE MAIN BHI BLOGS LINK ADD KAR DIYA 🔥 */}
+          <Link to="/blogs" onClick={() => setIsOpen(false)} className="text-slate-300 font-medium">Blogs</Link>
+          
           <Link to="/community" onClick={() => setIsOpen(false)} className="text-slate-300 font-medium">Community</Link>
           
           <hr className="border-slate-800 my-2" />
@@ -96,7 +101,7 @@ const Navbar = () => {
               <span className="text-slate-300 text-sm flex items-center gap-2">
                 <UserCircle size={20} className="text-yellow-500" /> Hi, {loggedInUser.name}
               </span>
-              <button onClick={() => { handleLogout(); setIsOpen(false); }} className="bg-red-500/10 text-red-400 font-bold px-6 py-3 rounded-xl text-center border border-red-500/20">
+              <button onClick={() => { handleLogout(); setIsOpen(false); }} className="bg-red-500/10 text-red-400 font-bold px-6 py-3 rounded-xl text-center border border-red-500/20 cursor-pointer">
                 Logout
               </button>
             </div>
