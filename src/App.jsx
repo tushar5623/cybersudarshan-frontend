@@ -4,6 +4,8 @@ import Navbar from './components/Navbar';
 import Home from './components/Home';
 import Blogs from './components/Blogs';
 import ParticleBackground from './components/ParticleBackground'; 
+import Community from './components/Community';
+import Auth from './components/Auth';
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
         
         <main className="flex-grow">
           <Routes>
+            <Route path="/community" element={<Community />} />
+            <Route path="/login" element={<Auth />} />
             <Route path="/" element={<Home />} />
             <Route path="/blogs" element={<Blogs />} />
           </Routes>

@@ -1,79 +1,106 @@
-import React, { useState } from 'react';
-import { Menu, X } from 'lucide-react';
-import { Link, useLocation } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { Shield, Menu, X, UserCircle, LogOut } from 'lucide-react';
 import logo from '../assets/logo.png';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const location = useLocation();
+  const navigate = useNavigate();
 
-  // Active link ab Cyan ki jagah Yellow glow karega
-  const isActive = (path) => {
-    return location.pathname === path ? "text-yellow-400" : "text-gray-300 hover:text-yellow-400";
+  // 🔥 CHECK IF USER IS LOGGED IN 🔥
+  const loggedInUser = JSON.parse(localStorage.getItem('cyberUser'));
+  const isAuthenticated = !!loggedInUser;
+
+  const handleLogout = () => {
+    localStorage.removeItem('cyberUser');
+    navigate('/'); // Logout karke home par bhej do
+    window.location.reload(); // Page refresh taaki navbar update ho jaye
   };
 
   return (
-    <nav className="fixed w-full z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+    <nav className="w-full bg-slate-950/80 backdrop-blur-md border-b border-slate-800 fixed top-0 z-50">
+      <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        
+       {/* LOGO */}
+        <Link to="/" className="flex items-center gap-2">
+          
+          {/* 👇 YAHAN APNA ORIGINAL LOGO WAPAS LAGA DIYA 👇 */}
+          {/* Note: Agar tumhara logo kisi aur folder mein hai toh 'src' path theek kar lena jaise "/logo.png" */}
+          <img 
+            src={logo}
+            alt="Cyber Sudarshan Logo" 
+            className="w-12 h-12 object-contain" 
+          />
+          
+          {/* Logo ke bagal wala text */}
+          <div>
+            <h1 className="text-white font-extrabold text-lg md:text-xl tracking-wider leading-tight">CYBER</h1>
+            <h1 className="text-yellow-500 font-extrabold text-lg md:text-xl tracking-wider leading-tight">SUDARSHAN</h1>
+          </div>
+          
+        </Link>
 
-          {/* ================= LOGO SECTION START ================= */}
-          <Link to="/" className="flex-shrink-0 flex items-center gap-3 cursor-pointer group">
-            
-            {/* Logo image ka shadow ab Cyber-Gold hai */}
-            <img
-              src={logo}
-              alt="Cyber Sudarshan Logo"
-              className="h-14 w-14 object-contain drop-shadow-[0_0_8px_rgba(234,179,8,0.5)] group-hover:drop-shadow-[0_0_12px_rgba(234,179,8,0.8)] transition-all"
-            />
-
-            {/* Stacked Text (Gold & Amber Gradient) */}
-            <div className="flex flex-col items-start justify-center leading-none">
-              <span className="text-xl md:text-2xl font-extrabold uppercase bg-gradient-to-r from-yellow-400 to-amber-500 bg-clip-text text-transparent tracking-tight">
-                CYBER
-              </span>
-              <span className="text-xl md:text-2xl font-extrabold uppercase bg-gradient-to-r from-yellow-400 to-amber-500 bg-clip-text text-transparent tracking-tight -mt-0.5 md:-mt-1">
-                SUDARSHAN
-              </span>
-            </div>
+        {/* DESKTOP LINKS */}
+        <div className="hidden md:flex items-center gap-8">
+          <Link to="/" className="text-slate-300 hover:text-yellow-400 font-medium transition-colors">Home</Link>
+          <a href="#about" className="text-slate-300 hover:text-yellow-400 font-medium transition-colors">About</a>
+          <a href="#services" className="text-slate-300 hover:text-yellow-400 font-medium transition-colors">Services</a>
+          
+          {/* Community Link */}
+          <Link to="/community" className="text-slate-300 hover:text-yellow-400 font-medium transition-colors flex items-center gap-1">
+            Community <span className="flex h-2 w-2 relative"><span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span><span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span></span>
           </Link>
-          {/* ================= LOGO SECTION END ================= */}
-
-
-          {/* Desktop Menu */}
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
-              <Link to="/" className={`${isActive('/')} px-3 py-2 rounded-md text-sm font-medium transition-colors`}>Home</Link>
-              <Link to="/blogs" className={`${isActive('/blogs')} px-3 py-2 rounded-md text-sm font-medium transition-colors`}>Blogs</Link>
-              <a href="/#about" className="text-gray-300 hover:text-yellow-400 transition-colors px-3 py-2 rounded-md text-sm font-medium">About</a>
-              <a href="/#services" className="text-gray-300 hover:text-yellow-400 transition-colors px-3 py-2 rounded-md text-sm font-medium">Services</a>
-              
-              {/* Contact Us button theme updated */}
-              <a href="/#contact" className="bg-yellow-500/10 text-yellow-400 hover:bg-yellow-500/20 border border-yellow-500/50 px-4 py-2 rounded-full text-sm font-medium transition-all">Contact Us</a>
-            </div>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <div className="md:hidden">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-300 hover:text-white focus:outline-none"
-            >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
         </div>
+
+        {/* 🔥 LOGIN / LOGOUT BUTTON (DESKTOP) 🔥 */}
+        <div className="hidden md:flex items-center gap-4">
+          {!isAuthenticated ? (
+            <Link to="/login" className="bg-gradient-to-r from-yellow-500 to-amber-500 text-slate-900 font-bold px-6 py-2.5 rounded-full hover:scale-105 transition-transform shadow-[0_0_15px_rgba(234,179,8,0.3)]">
+              Login / Sign Up
+            </Link>
+          ) : (
+            <div className="flex items-center gap-4">
+              <span className="text-slate-300 text-sm flex items-center gap-2">
+                <UserCircle size={20} className="text-yellow-500" /> 
+                Hi, <span className="text-white font-bold">{loggedInUser.name}</span>
+              </span>
+              <button onClick={handleLogout} className="text-slate-400 hover:text-red-400 transition-colors p-2" title="Logout">
+                <LogOut size={20} />
+              </button>
+            </div>
+          )}
+        </div>
+
+        {/* MOBILE MENU BUTTON */}
+        <button className="md:hidden text-white" onClick={() => setIsOpen(!isOpen)}>
+          {isOpen ? <X size={28} /> : <Menu size={28} />}
+        </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* MOBILE MENU DROPDOWN */}
       {isOpen && (
-        <div className="md:hidden bg-slate-900 border-b border-slate-800 animate-in slide-in-from-top duration-200">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <Link to="/" onClick={() => setIsOpen(false)} className={`${isActive('/')} block px-3 py-2 rounded-md text-base font-medium`}>Home</Link>
-            <Link to="/blogs" onClick={() => setIsOpen(false)} className={`${isActive('/blogs')} block px-3 py-2 rounded-md text-base font-medium`}>Blogs</Link>
-            <a href="/#services" onClick={() => setIsOpen(false)} className="text-gray-300 hover:text-yellow-400 block px-3 py-2 rounded-md text-base font-medium">Services</a>
-            <a href="/#contact" onClick={() => setIsOpen(false)} className="text-yellow-400 block px-3 py-2 rounded-md text-base font-medium">Contact Us</a>
-          </div>
+        <div className="md:hidden bg-slate-900 border-b border-slate-800 px-6 py-4 flex flex-col gap-4">
+          <Link to="/" onClick={() => setIsOpen(false)} className="text-slate-300 font-medium">Home</Link>
+          <a href="#about" onClick={() => setIsOpen(false)} className="text-slate-300 font-medium">About</a>
+          <a href="#services" onClick={() => setIsOpen(false)} className="text-slate-300 font-medium">Services</a>
+          <Link to="/community" onClick={() => setIsOpen(false)} className="text-slate-300 font-medium">Community</Link>
+          
+          <hr className="border-slate-800 my-2" />
+          
+          {!isAuthenticated ? (
+            <Link to="/login" onClick={() => setIsOpen(false)} className="bg-yellow-500 text-slate-900 font-bold px-6 py-3 rounded-xl text-center">
+              Login / Sign Up
+            </Link>
+          ) : (
+            <div className="flex flex-col gap-3">
+              <span className="text-slate-300 text-sm flex items-center gap-2">
+                <UserCircle size={20} className="text-yellow-500" /> Hi, {loggedInUser.name}
+              </span>
+              <button onClick={() => { handleLogout(); setIsOpen(false); }} className="bg-red-500/10 text-red-400 font-bold px-6 py-3 rounded-xl text-center border border-red-500/20">
+                Logout
+              </button>
+            </div>
+          )}
         </div>
       )}
     </nav>
