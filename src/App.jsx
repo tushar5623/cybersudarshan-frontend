@@ -6,7 +6,9 @@ import Blogs from './components/Blogs';
 import ParticleBackground from './components/ParticleBackground'; 
 import Community from './components/Community';
 import Auth from './components/Auth';
-
+import Services from './components/Services';
+import WebPenetrationPage from './components/WebPenetrationPage';
+import About from './components/About';
 function App() {
   return (
     // Relative position zaroori hai layering ke liye
@@ -27,6 +29,9 @@ function App() {
             <Route path="/login" element={<Auth />} />
             <Route path="/" element={<Home />} />
             <Route path="/blogs" element={<Blogs />} />
+            
+            <Route path="/services" element={<WebPenetrationPage />} />
+           <Route path="/about" element={<About />} />
           </Routes>
         </main>
       </div>

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Hero from './hero';
 import VisionMission from './VisionMission';
 import About from './About';
-import Services from './Services';
+
 import ContactFooter from './ContactFooter';
 import PasswordChecker from './PasswordChecker';
 import EmailBreachChecker from './EmailBreachChecker';
@@ -59,8 +59,8 @@ const Home = () => {
       <Hero />
       <CyberNews />
       <VisionMission />
-      <About />
-      <Services />
+      {/* <About /> */}
+      
 
       <div data-aos="fade-up">
         <PasswordChecker />
