@@ -16,7 +16,7 @@ const Community = () => {
 
   const fetchMessages = async () => {
     try {
-      const res = await fetch('https://cyber-sudarshan-backend-1.onrender.com/api/chat');
+      const res = await fetch('https://cyber-himanshu-backend-1.onrender.com/api/chat');
       const data = await res.json();
       if (Array.isArray(data)) {
         // 🔥 ULTRA SMART FETCH: Sirf tabhi update karega jab sach mein aakhiri message naya ho!
@@ -70,7 +70,7 @@ const Community = () => {
     setTimeout(() => scrollToBottom(), 100);
 
     try {
-      await fetch('https://cyber-sudarshan-backend-1.onrender.com/api/chat', {
+      await fetch('https://cyber-himanshu-backend-1.onrender.com/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ sender: username, message: tempMsg.message })

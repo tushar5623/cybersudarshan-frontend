@@ -23,7 +23,7 @@ const CyberNews = () => {
 
   const fetchNews = async () => {
     try {
-      const res = await fetch('https://cyber-sudarshan-backend-1.onrender.com/api/news');
+      const res = await fetch('https://cyber-himanshu-backend-1.onrender.com/api/news');
       const data = await res.json();
       setNewsList(Array.isArray(data) ? data : []);
     } catch (error) {
@@ -37,7 +37,7 @@ const CyberNews = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const res = await fetch('https://cyber-sudarshan-backend-1.onrender.com/api/news', {
+      const res = await fetch('https://cyber-himanshu-backend-1.onrender.com/api/news', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
