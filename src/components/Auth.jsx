@@ -38,8 +38,8 @@ const Auth = () => {
     }
 
     const url = isLogin 
-      ? 'https://cyber-sudarshan-backend-1.onrender.comapi/auth/login'
-      : 'https://cyber-sudarshan-backend-1.onrender.comapi/auth/signup';
+      ? 'https://cyber-sudarshan-backend-1.onrender.com/api/auth/login'
+      : 'https://cyber-sudarshan-backend-1.onrender.com/api/auth/signup';
 
     try {
       const res = await fetch(url, {

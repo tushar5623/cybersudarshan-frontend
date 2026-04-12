@@ -35,7 +35,7 @@ const Home = () => {
     setIsSubmitting(true);
     
     try {
-      const response = await fetch('https://cyber-sudarshan-backend-1.onrender.comapi/emergency', {
+      const response = await fetch('https://cyber-sudarshan-backend-1.onrender.com/api/emergency', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(emergencyData),
