@@ -13,7 +13,7 @@ const EmailBreachChecker = () => {
     setResult(null);
 
     try {
-      const response = await fetch(`https://cyber-himanshu-backend-1.onrender.com/api/breach/${email}`);
+      const response = await fetch(`https://cyber-sudarshan-backend-1.onrender.comapi/breach/${email}`);
 
       if (response.ok) {
         const data = await response.json();

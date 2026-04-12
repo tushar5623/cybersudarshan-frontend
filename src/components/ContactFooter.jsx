@@ -18,7 +18,7 @@ const ContactFooter = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('https://cyber-himanshu-backend-1.onrender.com/api/contact', {
+      const response = await fetch('https://cyber-sudarshan-backend-1.onrender.comapi/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

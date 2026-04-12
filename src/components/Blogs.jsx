@@ -30,7 +30,7 @@ const Blogs = () => {
 
   const fetchBlogs = async () => {
     try {
-      const res = await fetch('https://cyber-himanshu-backend-1.onrender.com/api/blogs');
+      const res = await fetch('https://cyber-sudarshan-backend-1.onrender.comapi/blogs');
       if (!res.ok) throw new Error('Server error');
       const data = await res.json();
       setBlogs(Array.isArray(data) ? data : []);
@@ -48,7 +48,7 @@ const Blogs = () => {
     e.preventDefault();
     setLoginError('');
     try {
-      const res = await fetch('https://cyber-himanshu-backend-1.onrender.com/api/verify-admin', {
+      const res = await fetch('https://cyber-sudarshan-backend-1.onrender.comapi/verify-admin', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ password: inputPassword })
@@ -89,8 +89,8 @@ const Blogs = () => {
     setLoading(true);
 
     const url = editingBlogId 
-      ? `https://cyber-himanshu-backend-1.onrender.com/api/blogs/${editingBlogId}`
-      : 'https://cyber-himanshu-backend-1.onrender.com/api/blogs';
+      ? `https://cyber-sudarshan-backend-1.onrender.comapi/blogs/${editingBlogId}`
+      : 'https://cyber-sudarshan-backend-1.onrender.comapi/blogs';
     
     const method = editingBlogId ? 'PUT' : 'POST';
 
@@ -119,7 +119,7 @@ const Blogs = () => {
     if (!blogToDelete) return;
 
     try {
-      const res = await fetch(`https://cyber-himanshu-backend-1.onrender.com/api/blogs/${blogToDelete}`, {
+      const res = await fetch(`https://cyber-sudarshan-backend-1.onrender.comapi/blogs/${blogToDelete}`, {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ adminPassword })
